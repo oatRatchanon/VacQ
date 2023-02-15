@@ -19,7 +19,7 @@ app.use(express.json());
 // Mount routers
 app.use("/api/v1/hospitals", hospitals);
 
-const PORT = process.env.PORT || 22000;
+const PORT = process.env.PORT || 5000;
 
 const server = app.listen(
   PORT,
