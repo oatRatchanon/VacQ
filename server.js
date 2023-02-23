@@ -1,9 +1,11 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const cookieParser = require("cookie-parser");
 
 // Route flies
 const hospitals = require("./routes/hospitals");
+const auth = require("./routes/auth");
 
 // Load env vars
 dotenv.config({ path: "./config/config.env" });
@@ -13,11 +15,15 @@ connectDB();
 
 const app = express();
 
+//add cookie parser
+app.use(cookieParser());
+
 //Body parser
 app.use(express.json());
 
 // Mount routers
 app.use("/api/v1/hospitals", hospitals);
+app.use("/api/v1/auth", auth);
 
 const PORT = process.env.PORT || 5000;
 
