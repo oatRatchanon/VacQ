@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 // Route flies
 const hospitals = require("./routes/hospitals");
 const auth = require("./routes/auth");
+const appointments = require("./routes/appointments");
 
 // Load env vars
 dotenv.config({ path: "./config/config.env" });
@@ -24,6 +25,7 @@ app.use(express.json());
 // Mount routers
 app.use("/api/v1/hospitals", hospitals);
 app.use("/api/v1/auth", auth);
+app.use("/api/v1/appointments", appointments);
 
 const PORT = process.env.PORT || 5000;
 

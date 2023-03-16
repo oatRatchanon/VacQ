@@ -8,7 +8,13 @@ const {
 } = require("../controllers/hospitals");
 const { protect, authorize } = require("../middleware/auth");
 
+//Inclde other resource routers
+const appointmentRouter = require("./appointments");
+
 const router = express.Router();
+
+//Re-route into other resource routers
+router.use("/:hospitalId/appointments/", appointmentRouter);
 
 router
   .route("/")
