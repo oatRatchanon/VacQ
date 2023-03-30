@@ -8,6 +8,8 @@ const hospitals = require("./routes/hospitals");
 const auth = require("./routes/auth");
 const appointments = require("./routes/appointments");
 
+const cors = require("cors");
+
 // Load env vars
 dotenv.config({ path: "./config/config.env" });
 
@@ -15,6 +17,8 @@ dotenv.config({ path: "./config/config.env" });
 connectDB();
 
 const app = express();
+
+app.use(cors());
 
 //add cookie parser
 app.use(cookieParser());
